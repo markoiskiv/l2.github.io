@@ -1,0 +1,27 @@
+<body>
+<input type='text' id='chas' size='10'>
+
+<script>
+function formatTimeUnit(unit) {
+  return unit < 10 ? "0" + unit : unit;
+}
+
+function time() {
+  // Створення об'єкту Date
+  let currentTime = new Date();
+  
+  // Отримуємо години, хвилини та секунди
+  let hours = formatTimeUnit(currentTime.getHours());
+  let minutes = formatTimeUnit(currentTime.getMinutes());
+  let seconds = formatTimeUnit(currentTime.getSeconds());
+
+  // Зміна значення часу в об'єкті textbox
+  chas.value = hours + ":" + minutes + ":" + seconds;
+
+  // Запускаємо таймер із паузою 1000 мс для рекурсії
+  setTimeout(time, 1000);
+}
+
+time();
+</script>
+</body>
